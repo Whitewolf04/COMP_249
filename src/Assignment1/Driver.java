@@ -53,7 +53,7 @@ public class Driver {
 			}while (!rightChoice);
 
 			// 3. Core logic:
-			switch(choice):
+			switch(choice) {
 				case 1:
 					int countPassInner = 0; // To count the number of times the password has been entered wrong
 					boolean pass = false; // To exit the do-while-loop if needed
@@ -97,8 +97,56 @@ public class Driver {
 					pass = false;
 					
 					System.out.print("Please enter the password > ");
-					
-
+					do {
+						long seriEntered;
+						int index = -1;
+						passEntered = keyIn.next();
+						if(passEntered.equals(PASSWORD)) {
+							System.out.print("Please enter the serial number > ");
+							seriEntered = keyIn.nextLong();
+							for(int i = 0; i < inventory.length; i++) {
+								if(seriEntered == inventory[i].getSerialNum()) {
+									index = i;
+									System.out.println("Appliance Serial # " + inventory[i].getSerialNum());
+									System.out.println("Brand: " + inventory[i].getBrand());
+									System.out.println("Type: " + inventory[i].getType());
+									System.out.println("Price: " + inventory[i].getPrice());
+								}
+							}
+							
+							// Check if the serial number exist inside inventory
+							if(index == -1) {
+								System.out.println("The serial number entered is incorrect!");
+								System.out.println("Do you wish to: ");
+								System.out.println("\t1.\tTry again");
+								System.out.println("\t2.\tGo back to the main menu");
+								System.out.print("Please enter your choice > ");
+								//************************Need error handling
+								switch(keyIn.nextInt()) {
+								case 1:
+									continue;
+								case 2:
+									break;
+								}
+								break;
+							}
+							
+							// Prompt the user which information to change
+							System.out.println("What information would you like to change?");
+							System.out.println("\t1.\tbrand");
+							System.out.println("\t2.\ttype");
+							System.out.println("\t3.\tprice");
+							System.out.println("\t4.\tQuit");
+							System.out.print("Please enter your choice > ");
+							//**********************************Need error handling
+							
+							switch(keyIn.nextInt()) {
+							case 1:
+								
+							}
+						}
+					} while(!pass);
+			}
 		} while (!exit);
 	}
 
