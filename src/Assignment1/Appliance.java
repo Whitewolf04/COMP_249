@@ -1,4 +1,4 @@
-package Assignment;
+package Assignment1;
 
 public class Appliance {
 	private String type, brand;
@@ -14,6 +14,7 @@ public class Appliance {
 		this.brand = null;
 		this.serialNum = 0;
 		this.price = 0.0;
+		count += 1;
 	}
 	
 	public Appliance(Appliance otherAppliance) {
@@ -21,6 +22,7 @@ public class Appliance {
 		otherAppliance.type = this.type;
 		otherAppliance.serialNum = this.serialNum;
 		otherAppliance.price = this.price;
+		count += 1;
 	}
 	
 	/**
@@ -48,7 +50,7 @@ public class Appliance {
 	public void setSerialNum(long serialNum) {
 		this.serialNum = serialNum;
 	}
-	public void getPrice(double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	
@@ -65,7 +67,7 @@ public class Appliance {
 	 * The method uses a static variable to count all subclasses activities
 	 * @return the number of created appliance so far
 	 */
-	public int findNumberOfCreatedAppliance() {
+	public static int findNumberOfCreatedAppliance() {
 		return count;
 	}
 	
